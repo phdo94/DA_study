@@ -112,3 +112,4 @@ where first_name = 'Nick' or last_name = 'Hunt'
 ```SQL
 select first_name as firstname, last_name as lastname from actor
 ```
+수정
