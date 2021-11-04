@@ -43,6 +43,13 @@ where category_id = all(
 	order by count(distinct r.rental_id) desc
 	limit 1)
 ```
+- select * 해보면서 테이블을 관찰해보면 categoty만을 사용해서는 도저히 답이 안나온다 라는 것을 깨닫게 됨.
+- category_id를 공유하고 있으며, rental이 얼마나 많이 됐는지 측정할 수 있는 테이블을 활용해야함.
+- 일단 rental 테이블로 어떤 카테고리를 빌려갔는지 알 수 없어서,
+카테고리를 연결시켜주기위해 film_category, inventory 테이블 활용.
+- 모든 테이블 join시켜주고 그루핑 시켜서 대여량이 가장 많은 category_id 추출
+- category 테이블과 all로 비교(조건이 한개만 있으니 any, all 둘 중에 하나만 써도 ok)<br>
+
 문제5번) dvd 대여를 제일 많이한 고객 이름은? (subquery 활용)
 ```SQL
 select c.first_name, c.last_name from customer as c
